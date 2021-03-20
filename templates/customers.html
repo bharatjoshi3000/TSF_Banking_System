@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+
+     {% block body_block %}
+
+
+    <main role="main" class="inner cover">
+      <h1 class="cover-heading">&nbsp; CUSTOMERS</h1>
+
+    </main>
+    <table style="font-family: 'Montserrat', sans-serif;
+        " class="table table-dark">
+      <thead>
+        <tr>
+          {% comment %} <th scope="col">ID</th> {% endcomment %}
+          <th scope="col">NAME</th>
+          <th scope="col">ACCOUNT NUMBER</th>
+          <th scope="col">E-MAIL</th>
+          <th scope="col">CITY</th>
+          <th scope="col">BALANCE (Rs.) </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        
+        {%  for customers in data %}
+        
+          {% comment %} <th scope="row">1001</th> {% endcomment %}
+          <td>{{customers.name}}</td>
+          <td>{{customers.account_number}}</td>
+          <td>{{customers.email}}</td>
+          <td>{{customers.city}}</td>
+          <td>{{customers.balance}}</td>
+        </tr>
+        <tr>
+        
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    
+ {% endblock %}

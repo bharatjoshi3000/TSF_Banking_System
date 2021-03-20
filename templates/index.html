@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+     {% block body_block %}
+
+    <main role="main" class="inner cover">
+      <h1 class="cover-heading">THE&nbsp; GRINGOTTS &nbsp; BANK</h1>
+      <section id="sec">
+        <div id="x" class="container ">
+          <p class="lead" style="font-family: 'Staatliches', cursive;
+          "> Welcome to the GRINGOTTS. <br> The most trusted ,reputed
+            and the safest bank out there.Gringotts provides you lots of benefits and it also gives the highest interest
+            rate
+            on your savings account in comparison to the other banks in the market . <br> So what are you waiting for &quest;
+             <br> Open your account today! </p>
+        </div>
+        <p>
+
+          <a href="{% url 'transaction:transaction_table' %}" class="btn btn-lg btn-secondary">GET STARTED</a>
+        </p class="lead">
+
+    </main>
+
+    {% endblock %}
+

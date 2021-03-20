@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+
+{% block body_block %}
+
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">&nbsp; TRANSACTIONS</h1>
+
+        </main>
+        <button type="button" style="font-family: 'Montserrat', sans-serif;" class="btn btn-success my-2"
+            data-toggle="modal" data-target="#exampleModal" href="#">TRANSFER MONEY</button>
+        <div class="modal" id="exampleModal" tabindex="-1">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{% url 'transaction:transop' %}"  method = "POST"  >
+                            {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" >Transfer From</span>
+                                </div>
+                                <input type="text" id="TransferFrom" class="form-control text-dark"
+                                    placeholder="Enter the First Name" name="transfer_from" aria-label="username1"
+                                    aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2"></span>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" >Transfer To</span>
+                                    </div>
+                                    <input type="text" id="TransferTo" class="form-control text-dark"
+                                        placeholder="Enter the Second Name" name="transfer_to" aria-label="username2"
+                                        aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Amount(Rs.)</span>
+                                    </div>
+                                    <input type="text" id="enterAmount" class="form-control text-dark"
+                                        placeholder="Amount" name = "amount" aria-label="Amount ">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-success"  >
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table style="font-family: 'Montserrat', sans-serif;
+        " class="table table-dark">
+            <thead>
+                <tr>
+
+                    {% comment %} <th scope="col">Sno.</th> {% endcomment %}
+                    <th scope="col">TRANSFER FROM</th>
+                    <th scope="col">TRANSFER TO</th>
+                    <th scope="col">AMOUNT TRANSFERRED(Rs.) </th>
+                    <th scope="col">TRANSACTION STATUS </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for trans in data %}
+
+                <tr style="color : white;">
+                <td class="py-2">{{trans.debited_from}}</td>
+                <td class="py-2">{{trans.credited_to}}</td>
+                <td class="py-2">{{trans.amount}}</td>
+                <td class="py-2">{{trans.transaction_status}}</td>
+                </tr>
+
+            {% endfor %}    
+                
+                    
+            
+            </tbody>
+        </table>
+
+        {% endblock %}
+
+      
