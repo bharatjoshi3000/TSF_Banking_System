@@ -26,7 +26,7 @@ SECRET_KEY = 'ai0%$pnx8hb7k9$h^a5t)oth@$3kxx%_npby-g^e%18ty4rfwl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','gringottsbank.herokuapp.com']
 
 
 # Application definition
