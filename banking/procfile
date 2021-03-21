@@ -1,0 +1,1 @@
+web: gunicorn TSF_BANKING_SYSTEM.wsgi --log-file -
